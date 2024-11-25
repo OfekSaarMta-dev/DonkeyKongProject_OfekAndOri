@@ -9,8 +9,8 @@ public:
 
     void setLadder(int x, int y, int height);
     void drawLadder();
-    const int getLadder_x() { return _x; }
-    const int getLadder_y() { return _y; }
-    const int getLadder_height() { return _height; }
+    const int getLadder_x() const { return _x; }
+    const int getLadder_y() const { return _y; }
+    const int getLadder_height() const { return _height; }
 
 };

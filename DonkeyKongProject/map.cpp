@@ -29,7 +29,7 @@ void Map::drawMap()
     // Set and draw ladders
     
 
-    for (int i = 0; i < GameConfig::MAX_LADDERS; i++)
+    for (int i = 0; i < GameConfig::NUM_OF_LADDERS; i++)
         this->_ladders[i].drawLadder();
 }
 

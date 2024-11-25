@@ -30,11 +30,5 @@ public:
     
 
 
-// 1. add class Ladder
-// 2. remove curser
-// 3. more floors
-// 4. mario climeb the ladder
-// 5. mario fall from floor to floor
-// 6. mario fall from floor to end of the screen - as a resalt start over the map from the begening
-// 7. add donky kong and princes in the top floor
+// 
 

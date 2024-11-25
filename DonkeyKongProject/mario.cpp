@@ -14,12 +14,17 @@ void Mario::draw(char ch)
 }
 
 
-bool Mario::isOnLadder(Ladder ladder)
+bool Mario::isOnLadder(const Ladder* ladders)
 {
-	int ladder_x = ladder.getLadder_x();
-	int ladder_y = ladder.getLadder_y();
-	int ladder_height = ladder.getLadder_height();
-	return ((_y <= ladder_y && _y >= ladder_y - ladder_height) && _x == ladder_x);
+	for (int i = 0; i < GameConfig::NUM_OF_LADDERS; i++)
+	{
+		const int ladder_x = ladders[i].getLadder_x();
+		const int ladder_y = ladders[i].getLadder_y();
+		const int ladder_height = ladders[i].getLadder_height();
+		if ((_y < ladder_y && _y > ladder_y - ladder_height) && _x == ladder_x)
+			return true;
+	}
+	return false;
 }
 
 
@@ -27,87 +32,83 @@ bool Mario::isOnLadder(Ladder ladder)
 void Mario::move(GameConfig::eKeys key)
 {
 	const int JUMP_HEIGHT = 2;
-	const int JUMP_DURATION = 100;
+	const int JUMP_DURATION = 200;
 
-	for (int i = 0; i < GameConfig::NUM_OF_FLOORS; i++)
+	
+	if (isOnLadder(_ladders))
 	{
-		if (isOnLadder(_ladders[i]))
+		switch (key)
 		{
-			switch (key)
-			{
-			case GameConfig::eKeys::UP:
-				dir_x = 0;
-				dir_y = -1;
-				break;
+		case GameConfig::eKeys::UP:
+			dir_x = 0;
+			dir_y = -1;
+			break;
 
-			case GameConfig::eKeys::DOWN:
+		case GameConfig::eKeys::DOWN:
+			dir_x = 0;
+			dir_y = 1;
+			break;
 
-				dir_x = 0;
-				dir_y = 1;
-				break;
-
-			case GameConfig::eKeys::STAY:
-				dir_x = 0;
-				dir_y = 0;
-				break;
-			}
-			_x += dir_x;
-			_y += dir_y;
-
+		case GameConfig::eKeys::STAY:
+			dir_x = 0;
+			dir_y = 0;
+			break;
 		}
-		else
+		_x += dir_x;
+		_y += dir_y;
+		Sleep(JUMP_DURATION);
+	}
+	else
+	{
+		dir_y = GameConfig::DIR_Y;
+
+		switch (key)
 		{
-			Sleep(JUMP_DURATION);
+		case GameConfig::eKeys::LEFT:
+			dir_x = -1;
+			dir_y = 0;
+			break;
 
-			switch (key)
+		case GameConfig::eKeys::RIGHT:
+			dir_x = 1;
+			dir_y = 0;
+			break;
+
+		case GameConfig::eKeys::UP:
+			dir_y = -1;
+
+			// Jump up
+			for (int i = 1; i <= JUMP_HEIGHT; i++)
 			{
-			case GameConfig::eKeys::LEFT:
-				dir_x = -1;
-				dir_y = 0;
-				break;
-
-			case GameConfig::eKeys::RIGHT:
-				dir_x = 1;
-				dir_y = 0;
-				break;
-
-
-			case GameConfig::eKeys::UP:
-			{
-				dir_y = -1;
-
-				// Jump up
-				for (int i = 1; i <= JUMP_HEIGHT; i++)
-				{
-					this->draw(' ');
-					_y += dir_y;
-					_x += dir_x;
-					this->draw('@');
-					Sleep(JUMP_DURATION);
-				}
-
-				// Hang in the air briefly
-				Sleep(JUMP_DURATION);
-
-				dir_y = 2;
-				// Fall down
 				this->draw(' ');
 				_y += dir_y;
+				_x += dir_x;
+				this->draw('@');
 				Sleep(JUMP_DURATION);
-
-				dir_y = 0;
-
-				break;
 			}
-			case GameConfig::eKeys::STAY:
-				dir_x = 0;
-				dir_y = 0;
-				break;
 
-			}
-			_x += dir_x;
+			// Hang in the air briefly
+			Sleep(JUMP_DURATION);
+
+			dir_y = 2;
+			// Fall down
+			this->draw(' ');
 			_y += dir_y;
+			Sleep(JUMP_DURATION);
+
+			dir_y = 0;
+
+			break;
+		
+		case GameConfig::eKeys::STAY:
+			dir_x = 0;
+			dir_y = 0;
+			break;
+
 		}
+		_x += dir_x;
+		_y += dir_y;
+		
 	}
 }
 

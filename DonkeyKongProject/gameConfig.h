@@ -18,9 +18,9 @@ public:
 	static constexpr int DIR_X = 0;
 	static constexpr int DIR_Y = 0;
 
-	static const int MAX_LADDERS = 2;
+	static constexpr int NUM_OF_LADDERS = 2;
 
-	static const int NUM_OF_FLOORS = 3;
+	static constexpr int NUM_OF_FLOORS = 3;
 	
 
 };

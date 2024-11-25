@@ -36,7 +36,7 @@ public:
 
 
 	void draw(char ch);
-	bool isOnLadder(Ladder ladders);
+	bool isOnLadder(const Ladder* ladders);
 	void move(GameConfig::eKeys key);
 
 	

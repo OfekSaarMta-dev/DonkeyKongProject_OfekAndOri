@@ -8,7 +8,7 @@ class Map
 {
 	Floor _floors[GameConfig::NUM_OF_FLOORS];
 
-	Ladder _ladders[GameConfig::MAX_LADDERS];
+	Ladder _ladders[GameConfig::NUM_OF_LADDERS];
 
 	
 public:
