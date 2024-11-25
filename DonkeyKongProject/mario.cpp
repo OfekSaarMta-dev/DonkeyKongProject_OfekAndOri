@@ -26,6 +26,8 @@ bool Mario::isOnLadder(Ladder ladder)
 
 void Mario::move(GameConfig::eKeys key)
 {
+	const int JUMP_HEIGHT = 2;
+	const int JUMP_DURATION = 100;
 
 	for (int i = 0; i < GameConfig::NUM_OF_FLOORS; i++)
 	{
@@ -55,6 +57,7 @@ void Mario::move(GameConfig::eKeys key)
 		}
 		else
 		{
+			Sleep(JUMP_DURATION);
 
 			switch (key)
 			{
@@ -71,8 +74,6 @@ void Mario::move(GameConfig::eKeys key)
 
 			case GameConfig::eKeys::UP:
 			{
-				const int JUMP_HEIGHT = 2;
-				const int JUMP_DURATION = 100;
 				dir_y = -1;
 
 				// Jump up
