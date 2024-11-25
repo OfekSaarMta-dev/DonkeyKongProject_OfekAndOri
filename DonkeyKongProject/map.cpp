@@ -6,21 +6,31 @@
 using namespace std;
 
 
-void Map::drawMap()
+
+void Map::createMap()
 {
 	this->_floors[0].setFloor(3, 77, 23, 25, '=');
 	this->_floors[1].setFloor(10, 65, 18, 43, '<');
 	this->_floors[2].setFloor(20, 40, 12, 30, '>');
 
+	this->_ladders[0].setLadder(25, 23, 6);
+	this->_ladders[1].setLadder(43, 18, 6);
+}
+
+
+
+void Map::drawMap()
+{
+	
+
 	for (int i = 0; i < GameConfig::NUM_OF_FLOORS; i++)
 		this->_floors[i].drawFloor();
 
     // Set and draw ladders
-    //this->_ladders[0].setLadder(25, 23, 6, 7); // Example ladder
-    //this->_ladders[1].setLadder(43, 18, 6, 7); // Example ladder
+    
 
-   // for (int i = 0; i < GameConfig::MAX_LADDERS; i++)
-      //  this->_ladders[i].drawLadder();
+    for (int i = 0; i < GameConfig::MAX_LADDERS; i++)
+        this->_ladders[i].drawLadder();
 }
 
 /*bool Map::isOnLadder(int x, int y)

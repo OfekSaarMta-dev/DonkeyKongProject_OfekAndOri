@@ -1,4 +1,4 @@
-/*#pragma once
+#pragma once
 class Ladder
 {
     int _x;
@@ -9,10 +9,8 @@ public:
 
     void setLadder(int x, int y, int height);
     void drawLadder();
-    bool isOnLadder(int x, int y);
+    const int getLadder_x() { return _x; }
+    const int getLadder_y() { return _y; }
+    const int getLadder_height() { return _height; }
 
-    bool isAtTopOfLadder();
-    int getTopOfLadder();
-
-}
-*/
+};

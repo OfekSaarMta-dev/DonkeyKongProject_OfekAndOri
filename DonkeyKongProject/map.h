@@ -8,13 +8,16 @@ class Map
 {
 	Floor _floors[GameConfig::NUM_OF_FLOORS];
 
-	//Ladder _ladders[GameConfig::MAX_LADDERS];
+	Ladder _ladders[GameConfig::MAX_LADDERS];
+
 	
 public:
-	
-	void drawMap();
-	//bool isOnLadder(int x, int y);
-	//int getTopOfLadder(int x, int y);
 
+	void createMap();
+	void drawMap();
+	const Floor* getFloors () { return _floors; }
+	const Ladder* getLadders() { return _ladders; }
 
 };
+
+

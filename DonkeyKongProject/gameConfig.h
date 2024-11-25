@@ -5,7 +5,7 @@ class GameConfig
 {
 public:
 	
-	enum class eKeys { LEFT = 'a', RIGHT = 'd', Jump = 'w', DOWN = 'x', STAY = 's', ESC = 27 };
+	enum class eKeys { LEFT = 'a', RIGHT = 'd', UP = 'w', DOWN = 'x', STAY = 's', ESC = 27 };
 	static constexpr int GAME_WIDTH = 80;//x
 	static constexpr int GAME_HEIGHT = 25;//y
 
@@ -21,7 +21,7 @@ public:
 	static const int MAX_LADDERS = 2;
 
 	static const int NUM_OF_FLOORS = 3;
-
+	
 
 };
 

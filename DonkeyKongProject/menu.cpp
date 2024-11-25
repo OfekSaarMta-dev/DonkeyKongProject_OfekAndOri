@@ -46,9 +46,13 @@ void Menu::show ()
 void Menu::run()
 {
     Map map;
-    map.drawMap();
-    Mario mario;
+	Mario mario;
 
+	map.createMap();
+
+    mario.setLaddersAndFloors(map);
+
+	map.drawMap();
 
     while (true)
     {

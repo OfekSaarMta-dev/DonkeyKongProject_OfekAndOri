@@ -18,5 +18,15 @@ public:
 	}
 
 	void drawFloor();
+
+	const int getFloor_start() const { return _start; }
+	const int getFloor_end() const { return _end; }
+	const int getFloor_height() const { return _height; }
+	const int getFloor_hole() const { return _hole; }
+	const char getFloor_type() const { return _type; }
+
+
+
+	
 };
 
