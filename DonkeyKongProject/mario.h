@@ -2,12 +2,15 @@
 
 #include "gameConfig.h"
 
+
+
 class Mario
 {
 	int _x;
 	int _y;
 	int dir_x;
 	int dir_y;
+
 	
 	
 public:

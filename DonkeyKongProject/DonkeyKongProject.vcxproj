@@ -128,16 +128,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="floor.cpp" />
     <ClCompile Include="gameConfig.cpp" />
     <ClCompile Include="general.cpp" />
+    <ClCompile Include="ladder.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="map.cpp" />
     <ClCompile Include="mario.cpp" />
     <ClCompile Include="menu.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="floor.h" />
     <ClInclude Include="gameConfig.h" />
     <ClInclude Include="general.h" />
+    <ClInclude Include="ladder.h" />
     <ClInclude Include="map.h" />
     <ClInclude Include="mario.h" />
     <ClInclude Include="menu.h" />

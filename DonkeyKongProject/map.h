@@ -1,19 +1,20 @@
 #pragma once
 
+#include "floor.h"
+#include "ladder.h"
 #include "gameConfig.h"
 
 class Map
 {
-	int first_floor[3];
+	Floor _floors[GameConfig::NUM_OF_FLOORS];
 
+	//Ladder _ladders[GameConfig::MAX_LADDERS];
 	
 public:
-	Map(int max_x)
-	{
-		first_floor[0] = GameConfig::MIN_Y;
-		first_floor[1] = GameConfig::MIN_X;
-		first_floor[2] = max_x;
-	}
-	void drawFloor();
-};
+	
+	void drawMap();
+	//bool isOnLadder(int x, int y);
+	//int getTopOfLadder(int x, int y);
 
+
+};

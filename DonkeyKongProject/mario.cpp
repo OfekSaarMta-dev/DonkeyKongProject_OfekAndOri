@@ -28,21 +28,36 @@ void Mario::move(GameConfig::eKeys key)
 			dir_y = 0;
 			break;
 
+		
 		case GameConfig::eKeys::Jump:
-			dir_y = -1; // going up
-			_y += dir_y;
-			_x += dir_x;
-			this->draw('@');
-			Sleep(200);
+		{
+
+			const int JUMP_HEIGHT = 2;
+			const int JUMP_DURATION = 100; 
+			dir_y = -1;
+
+			// Jump up
+			for (int i = 1; i <= JUMP_HEIGHT; i++) {
+				this->draw(' ');
+				_y += dir_y;
+				_x += dir_x;
+				this->draw('@');
+				Sleep(JUMP_DURATION);
+			}
+
+			// Hang in the air briefly
+			Sleep(JUMP_DURATION);
+
+			dir_y = 2;
+			// Fall down
 			this->draw(' ');
-			dir_y = 1; // going down
 			_y += dir_y;
-			_x += dir_x;
-			this->draw('@');
-			Sleep(200);
-			this->draw(' ');
+			Sleep(JUMP_DURATION);
+			
 			dir_y = 0;
+
 			break;
+		}
 
 		//case GameConfig::eKeys::DOWN:
 		//	dir_x = 0;

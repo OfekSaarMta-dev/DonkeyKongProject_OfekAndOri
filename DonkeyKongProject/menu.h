@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include <conio.h>
-
+#include <windows.h>
 
 class Menu {
     char ch;
@@ -26,6 +26,8 @@ public:
     void run();
 
 };
+
+    
 
 
 // 1. add class Ladder

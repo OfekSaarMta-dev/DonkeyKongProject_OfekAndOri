@@ -45,8 +45,8 @@ void Menu::show ()
 
 void Menu::run()
 {
-    Map map(77);
-    map.drawFloor();
+    Map map;
+    map.drawMap();
     Mario mario;
 
 
